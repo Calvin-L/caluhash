@@ -16,6 +16,12 @@ guarantees of a "true" universal hash function generator.
 ```c++
 #include <caluhash.hpp>
 #include <random>
+#include <iostream>
+
+struct MyType {
+    int field1;
+    char field2;
+};
 
 // Teach the library how to hash a new type.
 caluhash::Hasher& operator<<(caluhash::Hasher& h, const MyType& x) {

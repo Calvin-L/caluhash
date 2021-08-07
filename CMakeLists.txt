@@ -20,9 +20,14 @@ target_compile_features(caluhash INTERFACE cxx_std_11) # need <random>
 # Testing
 
 enable_testing()
+
 add_executable(caluhash_test test/main.cpp)
 target_link_libraries(caluhash_test PRIVATE caluhash)
 add_test(NAME caluhash_test COMMAND caluhash_test)
+
+add_executable(caluhash_example test/example.cpp)
+target_link_libraries(caluhash_example PRIVATE caluhash)
+add_test(NAME caluhash_example COMMAND caluhash_example)
 
 # -----------------------------------------------------------------------------
 # Install  (I feel that this should be automatic given just the list of
