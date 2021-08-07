@@ -56,8 +56,8 @@ cmake_minimum_required(VERSION 3.14) # or higher
 include(FetchContent)
 FetchContent_Declare(
     caluhash_repo
-    GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG        master)
+    GIT_REPOSITORY https://github.com/Calvin-L/caluhash.git
+    GIT_TAG        main)
 FetchContent_MakeAvailable(caluhash_repo)
 
 ...
@@ -65,5 +65,5 @@ FetchContent_MakeAvailable(caluhash_repo)
 target_link_libraries(YOUR_TARGET_HERE PRIVATE caluhash)
 ```
 
-Note that you may want to replace "master" with a specific revision for stable
+Note that you may want to replace `main` with a specific revision for stable
 builds.
