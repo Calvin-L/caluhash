@@ -25,7 +25,7 @@ struct MyType {
 
 // Teach the library how to hash a new type.
 caluhash::Hasher& operator<<(caluhash::Hasher& h, const MyType& x) {
-    return h << x.field1 << x.field2 << ...;
+    return h << x.field1 << x.field2;
 }
 
 int main() {
