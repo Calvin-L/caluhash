@@ -7,6 +7,10 @@ for example, need many different hash functions.  If you are implementing a
 server, you might want to generate a random hash function to prevent [hash
 collision DoS attacks](https://en.wikipedia.org/wiki/Collision_attack#Usage_in_DoS_attacks).
 
+Note that this library implements the "almost universal" rolling hash scheme.
+It is fast and high-quality in practice, but doesn't offer the strongest
+guarantees of a "true" universal hash function generator.
+
 ## How to use this library
 
 ```c++
