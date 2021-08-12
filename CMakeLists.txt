@@ -3,7 +3,8 @@
 
 # NOTE: need CMake 3.9+ to specify project description:
 #   https://cmake.org/cmake/help/latest/release/3.9.html?highlight=project%20description#commands
-cmake_minimum_required(VERSION 3.9)
+# Need 3.19+ for INTERFACE library with sources: https://cmake.org/cmake/help/latest/command/add_library.html#interface-libraries
+cmake_minimum_required(VERSION 3.19)
 project(CalvinsUniversalHasher
     VERSION 1.0
     DESCRIPTION "A library for almost-universal hashing"
