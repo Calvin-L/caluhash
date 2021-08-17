@@ -52,6 +52,7 @@ private:
 
 // ----------------------------------------------------------------------------
 
+
 Hasher::Hasher()
   : value(0),
     rollingFactor(31),
@@ -62,8 +63,12 @@ Hasher::Hasher()
 template <class Rng>
 Hasher::Hasher(Rng& sourceOfRandomness)
   : value(0),
-    rollingFactor(std::uniform_int_distribution<decltype(rollingFactor)>()(sourceOfRandomness)),
-    finalFactor(std::uniform_int_distribution<decltype(finalFactor)>()(sourceOfRandomness))
+    // NOTE: these factors need to be odd so that repeated multiplications
+    // don't "shift" information left until it disappears during the rolling
+    // hash.  Bitwise-or with 1 is a shortcut to guarantee we get odd random
+    // numbers.
+    rollingFactor(std::uniform_int_distribution<decltype(rollingFactor)>()(sourceOfRandomness) | 1),
+    finalFactor(std::uniform_int_distribution<decltype(finalFactor)>()(sourceOfRandomness) | 1)
 {
 }
 
